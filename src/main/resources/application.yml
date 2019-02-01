@@ -1,0 +1,21 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: qbgc-test-zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gaochao:8810/eureka
+
+zuul:
+  routes:
+    api-feign:
+      path: /api/feign/**
+      serviceId: qbgc-test-feign
+    api-ribbon:
+      path: /api/ribbon/**
+      serviceId: qbgc-test-ribbon
+
